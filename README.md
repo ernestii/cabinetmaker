@@ -10,6 +10,8 @@ and nothing leaves your machine.
 
 > Cabinetmaker is the open-source, fully-local edition of the Cabinetor design tool.
 
+![Elevation editor — a kitchen wall laid out in the 2D elevation view](docs/screenshots/elevation.webp)
+
 ## Features
 
 - **Layout** — 2D elevation editor: add base/upper/tall runs, drag dividers to
@@ -37,6 +39,16 @@ and nothing leaves your machine.
 
 Projects autosave to `localStorage` and import / export as JSON, so a design is a
 single portable file.
+
+## Screenshots
+
+| Live 3D                                            | Cut list                                          |
+| -------------------------------------------------- | ------------------------------------------------- |
+| ![Live 3D preview](docs/screenshots/viewer3d.webp) | ![Nested cut list](docs/screenshots/cutlist.webp) |
+
+| Shopping list                                                          | Assembly guide                                                |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------- |
+| ![Shopping list grouped by department](docs/screenshots/shopping.webp) | ![Per-cabinet assembly steps](docs/screenshots/assembly.webp) |
 
 > **Prices & products are estimates.** The built-in materials, hardware and
 > appliance entries are generic material types — not specific brands — and their
@@ -123,9 +135,27 @@ import { registerPlugin } from './domain/plugins';
 
 registerPlugin({
   id: 'my-cabinets',
-  doorStyles: [{ id: 'shaker', label: 'Shaker', buildFace(c) { /* emit frame + panel */ } }],
-  fixtures: [{ id: 'wine-fridge', label: 'Wine fridge', zone: 'base', defaultWidthIn: 24,
-              countertop: 'pass', place(c) { /* c.node(...) / c.add(...) */ } }],
+  doorStyles: [
+    {
+      id: 'shaker',
+      label: 'Shaker',
+      buildFace(c) {
+        /* emit frame + panel */
+      },
+    },
+  ],
+  fixtures: [
+    {
+      id: 'wine-fridge',
+      label: 'Wine fridge',
+      zone: 'base',
+      defaultWidthIn: 24,
+      countertop: 'pass',
+      place(c) {
+        /* c.node(...) / c.add(...) */
+      },
+    },
+  ],
 });
 ```
 
@@ -145,11 +175,13 @@ npm run build     # outputs dist/
 npm run preview   # serve the built dist/ locally to verify
 ```
 
-A [`netlify.toml`](./netlify.toml) and [`wrangler.jsonc`](./wrangler.jsonc) are
-included with the build command, the SPA fallback (so hash-routed tabs resolve),
-long-lived caching for content-hashed assets, and security headers. The app also
-ships a baseline Content-Security-Policy via a `<meta>` tag in `index.html`. For
-Vercel or GitHub Pages, mirror the same redirect + header rules.
+Because routing is hash-based, every real navigation hits `/`, so the only host
+requirement is the usual SPA fallback — serve `index.html` for unknown paths so
+deep links don't 404. Vite emits content-hashed asset filenames (cache them
+forever; keep `index.html` uncached), and the app ships a baseline
+Content-Security-Policy via a `<meta>` tag in `index.html`. Any static host
+(Netlify, Cloudflare Pages, Vercel, GitHub Pages, S3, …) works with that one
+fallback rule.
 
 CI (`.github/workflows/ci.yml`) runs lint, build (type-check) and tests on every
 push and pull request.
