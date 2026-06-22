@@ -38,10 +38,6 @@ export interface SheetPreset {
   hint: string;
   /** Selected out of the box for a fresh project. */
   preset?: boolean;
-  /** Retailer, shown on the shopping list (defaults to Home Depot). */
-  store?: string;
-  /** Manufacturer model / internet number for the shopping list. */
-  sku?: string;
 }
 
 /**
@@ -50,17 +46,17 @@ export interface SheetPreset {
  * → faces → counter → toekick. Extras below cover common alternatives.
  */
 export const SHEET_PRESETS: SheetPreset[] = [
-  { id: 'm-carcass', name: '3/4" Birch Ply', thicknessIn: 0.75, color: '#d8b886', textureUrl: 'birch', grained: true, roles: ['carcass'], pricePerSheet: 75, hint: 'Carcass boxes', preset: true, store: 'Home Depot', sku: 'PureBond 165921' },
-  { id: 'm-half', name: '1/2" Birch Ply', thicknessIn: 0.5, color: '#e3c49a', textureUrl: 'birch', grained: true, roles: ['drawer', 'drawerBottom', 'back'], pricePerSheet: 55, hint: 'Drawer boxes + backs', preset: true, store: 'Home Depot', sku: 'PureBond 165911' },
-  { id: 'm-face', name: '3/4" Oak Ply', thicknessIn: 0.75, color: '#c79a5e', textureUrl: 'oak', grained: true, roles: ['face'], pricePerSheet: 95, hint: 'Doors + drawer faces', preset: true, store: 'Home Depot', sku: 'Oak 4x8' },
-  { id: 'm-counter', name: 'Black marble counter', thicknessIn: 1.5, color: '#26262b', textureUrl: 'marbleBlack', grained: false, roles: ['counter'], pricePerSheet: 120, hint: 'Countertops', preset: true, store: 'Home Depot', sku: 'Special order' },
-  { id: 'm-toekick', name: '3/4" Toekick', thicknessIn: 0.75, color: '#4a4a4a', grained: false, roles: ['toekick'], pricePerSheet: 40, hint: 'Base toekicks', preset: true, store: 'Home Depot', sku: 'Sande 441908' },
-  { id: 'm-maple', name: '3/4" Maple Ply', thicknessIn: 0.75, color: '#e8d3a8', textureUrl: 'birch', grained: true, roles: ['carcass'], pricePerSheet: 80, hint: 'Carcass — brighter than birch', store: 'Home Depot', sku: 'Maple 4x8' },
-  { id: 'm-melamine', name: '3/4" White Melamine', thicknessIn: 0.75, color: '#f2f2f4', textureUrl: 'melamine', grained: false, roles: ['carcass'], pricePerSheet: 45, hint: 'Wipe-clean carcass; no grain', store: 'Home Depot', sku: 'Veranda 461877' },
-  { id: 'm-mdf', name: '3/4" Paint-grade MDF', thicknessIn: 0.75, color: '#ededf0', textureUrl: 'melamine', grained: false, roles: ['face'], pricePerSheet: 50, hint: 'Faces for a painted finish', store: 'Home Depot', sku: 'ULTRASTOCK' },
-  { id: 'm-walnut', name: '3/4" Walnut Ply', thicknessIn: 0.75, color: '#5b4332', textureUrl: 'walnut', grained: true, roles: ['face'], pricePerSheet: 140, hint: 'Premium dark faces', store: 'Home Depot', sku: 'Walnut 4x8' },
-  { id: 'm-butcher', name: 'Butcher block counter', thicknessIn: 1.5, color: '#946a34', textureUrl: 'butcher', grained: true, roles: ['counter'], pricePerSheet: 90, hint: 'Warm wood countertop', store: 'Home Depot', sku: 'Hardwood Reflections BBCT1502598' },
-  { id: 'm-marble-white', name: 'White marble counter', thicknessIn: 1.5, color: '#e8e8ec', textureUrl: 'marbleWhite', grained: false, roles: ['counter'], pricePerSheet: 130, hint: 'Light stone countertop', store: 'Home Depot', sku: 'Special order' },
+  { id: 'm-carcass', name: '3/4" Birch Ply', thicknessIn: 0.75, color: '#d8b886', textureUrl: 'birch', grained: true, roles: ['carcass'], pricePerSheet: 75, hint: 'Carcass boxes', preset: true },
+  { id: 'm-half', name: '1/2" Birch Ply', thicknessIn: 0.5, color: '#e3c49a', textureUrl: 'birch', grained: true, roles: ['drawer', 'drawerBottom', 'back'], pricePerSheet: 55, hint: 'Drawer boxes + backs', preset: true },
+  { id: 'm-face', name: '3/4" Oak Ply', thicknessIn: 0.75, color: '#c79a5e', textureUrl: 'oak', grained: true, roles: ['face'], pricePerSheet: 95, hint: 'Doors + drawer faces', preset: true },
+  { id: 'm-counter', name: 'Black marble counter', thicknessIn: 1.5, color: '#26262b', textureUrl: 'marbleBlack', grained: false, roles: ['counter'], pricePerSheet: 120, hint: 'Countertops', preset: true },
+  { id: 'm-toekick', name: '3/4" Toekick', thicknessIn: 0.75, color: '#4a4a4a', grained: false, roles: ['toekick'], pricePerSheet: 40, hint: 'Base toekicks', preset: true },
+  { id: 'm-maple', name: '3/4" Maple Ply', thicknessIn: 0.75, color: '#e8d3a8', textureUrl: 'birch', grained: true, roles: ['carcass'], pricePerSheet: 80, hint: 'Carcass — brighter than birch' },
+  { id: 'm-melamine', name: '3/4" White Melamine', thicknessIn: 0.75, color: '#f2f2f4', textureUrl: 'melamine', grained: false, roles: ['carcass'], pricePerSheet: 45, hint: 'Wipe-clean carcass; no grain' },
+  { id: 'm-mdf', name: '3/4" Paint-grade MDF', thicknessIn: 0.75, color: '#ededf0', textureUrl: 'melamine', grained: false, roles: ['face'], pricePerSheet: 50, hint: 'Faces for a painted finish' },
+  { id: 'm-walnut', name: '3/4" Walnut Ply', thicknessIn: 0.75, color: '#5b4332', textureUrl: 'walnut', grained: true, roles: ['face'], pricePerSheet: 140, hint: 'Premium dark faces' },
+  { id: 'm-butcher', name: 'Butcher block counter', thicknessIn: 1.5, color: '#946a34', textureUrl: 'butcher', grained: true, roles: ['counter'], pricePerSheet: 90, hint: 'Warm wood countertop' },
+  { id: 'm-marble-white', name: 'White marble counter', thicknessIn: 1.5, color: '#e8e8ec', textureUrl: 'marbleWhite', grained: false, roles: ['counter'], pricePerSheet: 130, hint: 'Light stone countertop' },
 ];
 
 /** Shared sheet dimensions/kerf stamped onto every wizard-built material. */
@@ -80,8 +76,6 @@ export function materialsFromPresets(ids: string[]): Material[] {
     grained: p.grained,
     roles: [...p.roles],
     pricePerSheet: p.pricePerSheet,
-    store: p.store ?? 'Home Depot',
-    sku: p.sku,
     ...dims,
   }));
 }

@@ -251,10 +251,6 @@ export interface Material {
   pricePerSheet?: number;
   /** Catalog product this stock was picked from (for the shopping list link). */
   productId?: string;
-  /** Retailer the catalog product comes from, e.g. "Home Depot". */
-  store?: string;
-  /** Manufacturer model / internet number, shown on the shopping list. */
-  sku?: string;
 }
 
 /** Per-piece hardware prices for the cost estimate. */
@@ -264,7 +260,7 @@ export interface Pricing {
   pullEach: number;
   /** Push-to-open / touch latch, each. */
   pushLatchEach: number;
-  /** Bought adjustable workbench leg (IKEA-style pole), each. */
+  /** Bought adjustable workbench leg (pole-style), each. */
   legEach: number;
   /** Edge banding sold by the roll, priced per 100 linear feet. */
   edgeBandingPer100Ft: number;
@@ -352,7 +348,7 @@ export interface Node3D {
   kind: 'panel' | 'back' | 'face' | 'counter' | 'toekick' | 'leg' | 'drawerBox' | 'handle' | 'wall' | 'ceiling' | 'appliance' | 'light';
   /**
    * Non-box silhouette for the viewer. 'fingerPull' renders a rounded trapezoid
-   * (IKEA Alex–style routed pull) extruded to `size[2]`; 'cylinder' a round prism
+   * (a routed finger pull) extruded to `size[2]`; 'cylinder' a round prism
    * along `axis` fitted into the box (burner discs, bar handles, portholes);
    * 'frustum' a flat-shaded tapered box (hood canopy). Unset renders a box.
    */
@@ -439,7 +435,7 @@ export interface HardwareCounts {
   pulls: number;
   /** Push-to-open / touch latches (doors with a 'pushLatch' handle). */
   pushLatches: number;
-  /** Bought adjustable workbench legs (IKEA-style poles — not fabricated). */
+  /** Bought adjustable workbench legs (pole-style — not fabricated). */
   legs: number;
 }
 

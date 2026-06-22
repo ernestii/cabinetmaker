@@ -17,7 +17,6 @@ describe('product catalog', () => {
       expect(p.sheetW).toBeGreaterThan(0);
       expect(p.sheetH).toBeGreaterThanOrEqual(p.sheetW); // length is the long side
       expect(p.roles.length).toBeGreaterThan(0);
-      expect(p.store).toBeTruthy();
       if (p.textureUrl) expect(TEXTURE_VALUES.has(p.textureUrl)).toBe(true);
     }
   });
@@ -35,7 +34,6 @@ describe('product catalog', () => {
     expect(m.id).toBe('mat-1');
     expect(m.pricePerSheet).toBe(p.price);
     expect(m.productId).toBe(p.id);
-    expect(m.sku).toBe(p.sku);
     expect(m.roles).toEqual(p.roles);
     // editing the material's roles must not mutate the catalog product
     m.roles.push('toekick');

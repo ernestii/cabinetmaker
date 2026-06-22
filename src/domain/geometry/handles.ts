@@ -90,7 +90,7 @@ export function handleNodes(inp: HandleVizInput, defaultHandle?: HandleType): No
 
 /** A dark recess machined into the top edge of a (drawer) face. */
 function routerCutoutNode({ W, D, tf, cy, faceHeight, faceW }: HandleVizInput): Node3D {
-  // IKEA Alex–style finger pull: a rounded trapezoidal recess centred on the top
+  // Routed finger pull: a rounded trapezoidal recess centred on the top
   // edge, sat just proud of the face so it never z-fights it. The trapezoid is
   // drawn by the viewer from this node's size (top span, height, depth).
   const recessW = Math.min(ROUTER_CUTOUT_WIDTH, faceW * 0.9);

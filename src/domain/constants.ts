@@ -20,14 +20,14 @@ export const REVEAL = 1 / 16;
  * pull machined into the top edge of a drawer face (no added stock).
  */
 export const EDGE_PULL_EXTENSION = 1.5; // how far an edge-pull face projects past the opening
-export const ROUTER_CUTOUT_WIDTH = 4.5; // span of the routed finger pull (IKEA Alex–style)
+export const ROUTER_CUTOUT_WIDTH = 4.5; // span of the routed finger pull
 export const ROUTER_CUTOUT_HEIGHT = 1.5; // visible height of the routed finger pull
 export const ROUTER_CUTOUT_DEPTH = 0.375; // 3/8" finger relief routed into the face
 
 /** Side-mount drawer slide clearance, per side. */
 export const SLIDE_CLEARANCE = 0.5;
 
-/** Under-mount (Blum-style) drawer slide clearance, per side (~3/16"). */
+/** Under-mount drawer slide clearance, per side (~3/16"). */
 export const UNDERMOUNT_CLEARANCE = 3 / 16;
 
 /** Default dado/groove depth that captures drawer front/back into the sides. */
@@ -46,10 +46,10 @@ export const BOTTOM_GROOVE_UP = 0.5;
 /** Screws driven per corner when the drawer joint is dado + screws. */
 export const SCREWS_PER_JOINT = 2;
 
-/** Adjustable leg height (Home Depot 4.5" levelers). */
+/** Adjustable leg height (typical 4.5" levelers). */
 export const LEG_HEIGHT = 4.5;
 
-/** Countertop slab thickness (Home Depot 1.5"). */
+/** Countertop slab thickness (typical 1.5" slab). */
 export const COUNTER_THICKNESS = 1.5;
 
 /** Front overhang of the countertop past the cabinet face. */

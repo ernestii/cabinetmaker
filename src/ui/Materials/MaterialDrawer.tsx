@@ -46,7 +46,7 @@ export function MaterialDrawer({ material, onClose, setMat, toggleRole }: Props)
             <ColorInput size="xs" w={132} label="Colour" format="hex" value={m.color}
               onChange={(v) => setMat(m.id, { color: v })} />
           </Group>
-          {m.store && <Text fz="xs" c="dimmed">From {m.store}{m.sku ? ` · ${m.sku}` : ''}</Text>}
+          {m.productId && <Text fz="xs" c="dimmed">Catalog stock</Text>}
 
           <SectionLabel>Appearance</SectionLabel>
           <Group gap={6}>

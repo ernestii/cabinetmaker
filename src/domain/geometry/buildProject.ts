@@ -206,7 +206,7 @@ function buildWorkbenchFrame(el: WallElement, project: Project, out: BuiltScene,
   for (const lx of legXs) for (const lz of legZs) {
     out.nodes.push({ pos: [lx, legTop / 2, lz], size: [LEG_SECTION, legTop, LEG_SECTION], color: legColor, kind: 'leg' });
   }
-  // Legs are a bought adjustable pole (IKEA-style), not a fabricated part — tally
+  // Legs are a bought adjustable pole (pole-style), not a fabricated part — tally
   // them as hardware for the shopping list rather than emitting a cut part.
   out.hardware.legs += legXs.length * legZs.length;
 

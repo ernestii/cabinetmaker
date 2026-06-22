@@ -257,7 +257,7 @@ function MaterialTable({ mats, variant, onEdit, onRemove }: {
             <td width={30}><span className="mat-swatch" style={{ background: m.color }} aria-hidden /></td>
             <td>
               <Text fz={13} fw={600} span>{m.name}</Text>
-              <Text fz="xs" c="dimmed">{m.store ? `${m.store}${m.sku ? ` · ${m.sku}` : ''}` : 'Custom'}</Text>
+              <Text fz="xs" c="dimmed">{m.productId ? 'Catalog stock' : 'Custom'}</Text>
             </td>
             <td className="mono">{toFraction(m.thicknessIn)}</td>
             <td className="mono">{m.sheetW} × {m.sheetH}"</td>

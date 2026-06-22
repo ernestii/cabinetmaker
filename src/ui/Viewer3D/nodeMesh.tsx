@@ -29,7 +29,7 @@ function towards(a: [number, number], b: [number, number], dist: number): [numbe
 }
 
 /**
- * Rounded-trapezoid prism for an IKEA Alex–style routed finger pull: wider at the
+ * Rounded-trapezoid prism for a routed finger pull: wider at the
  * top (the open mouth at the drawer's top edge), tapering down, corners eased.
  * Built in the XY plane and extruded along +z, then centred on z like a box.
  */

@@ -24,8 +24,8 @@ and nothing leaves your machine.
   waste %, and edge-banding totals. Countertops are listed separately as
   cut-to-length slabs. Print / PDF ready.
 - **Shopping** — a check-off-as-you-go buy list grouped by department (sheet
-  goods, countertops, edge banding, hardware) with real products, model numbers
-  and ballpark prices, plus a running total. Print / PDF ready.
+  goods, countertops, edge banding, hardware) with material specs and ballpark
+  prices, plus a running total. Print / PDF ready.
 - **Assembly** — ordered, per-cabinet steps with pocket-hole / dowel notes and
   euro hinge boring positions.
 - **Materials** — add real, priced stock from a built-in catalog (plywood, MDF,
@@ -37,6 +37,13 @@ and nothing leaves your machine.
 
 Projects autosave to `localStorage` and import / export as JSON, so a design is a
 single portable file.
+
+> **Prices & products are estimates.** The built-in materials, hardware and
+> appliance entries are generic material types — not specific brands — and their
+> prices are rough planning ballparks that move with the market and vary by
+> region. They are not affiliated with or endorsed by any retailer or
+> manufacturer. Always confirm sizes and prices with your own supplier; tune any
+> price on the Materials tab.
 
 ## Quick start
 
@@ -149,8 +156,8 @@ push and pull request.
 
 ## Contributing
 
-Issues and pull requests are welcome. Before opening a PR, please keep the three
-CI checks green:
+Issues and pull requests are welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md)
+for the full guide. In short, before opening a PR keep the three CI checks green:
 
 ```
 npm run lint

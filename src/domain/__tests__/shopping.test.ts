@@ -26,12 +26,6 @@ describe('buildShoppingList', () => {
     expect(Math.abs(list.total - cost.total)).toBeLessThan(0.05);
   });
 
-  it('carries store + sku provenance from catalog-seeded materials', () => {
-    const sheets = list.sections.find((s) => s.title === 'Sheet goods')!;
-    expect(sheets.items.every((i) => i.store === 'Home Depot')).toBe(true);
-    expect(sheets.items.some((i) => !!i.sku)).toBe(true);
-  });
-
   it('includes a countertop department for the seed (counters on)', () => {
     expect(list.sections.some((s) => s.title === 'Countertops')).toBe(true);
   });

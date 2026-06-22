@@ -65,11 +65,7 @@ export function Shopping() {
                   </td>
                   <td>
                     <div className="shop-name">{it.name}</div>
-                    <div className="shop-detail">
-                      {it.detail}
-                      {it.store ? ` · ${it.store}` : ''}
-                      {it.sku ? ` · ${it.sku}` : ''}
-                    </div>
+                    <div className="shop-detail">{it.detail}</div>
                   </td>
                   <td className="shop-num">{it.qty}</td>
                   <td className="shop-unit">{it.unit} @ {money(it.unitPrice)}</td>
@@ -122,8 +118,8 @@ export function Shopping() {
             </tbody>
           </table>
           <Text c="dark.1" fz="xs">
-            Prices are ballpark planning estimates (mostly Home Depot) and move with the market — confirm
-            at your store. Tune any price on the Materials tab.
+            Prices are ballpark planning estimates and move with the market — confirm with your supplier.
+            Products are generic material types (no brand affiliation). Tune any price on the Materials tab.
           </Text>
         </section>
       )}

@@ -23,7 +23,7 @@ export function CatalogPicker({ opened, onClose, onAdd, category }: Props) {
   return (
     <Modal opened={opened} onClose={onClose} title="Add stock from the catalog" size="lg" centered>
       <Text size="xs" c="dimmed" mb="md">
-        Representative products (mostly Home Depot). Prices are ballpark estimates for planning — adjust
+        Generic material types (no brand affiliation). Prices are ballpark estimates for planning — adjust
         anything after adding it.
       </Text>
       {GROUPS.filter((g) => !category || g.category === category).map((g) => (

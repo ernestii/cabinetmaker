@@ -14,8 +14,6 @@ export interface ShoppingItem {
   unit: string;
   unitPrice: number;
   total: number;
-  store?: string;
-  sku?: string;
 }
 
 export interface ShoppingSection {
@@ -33,9 +31,8 @@ const round2 = (n: number) => Math.round(n * 100) / 100;
 
 /**
  * Turn the cut list + cost estimate into a flat, shoppable list grouped by
- * department: sheet goods, countertop slabs, edge banding and hardware. Each
- * line carries the store + model so it's easy to find again. Prices come from
- * the materials/pricing the user set (seeded from the catalog).
+ * department: sheet goods, countertop slabs, edge banding and hardware. Prices
+ * come from the materials/pricing the user set (seeded from the catalog).
  */
 export function buildShoppingList(project: Project): ShoppingList {
   const cost = buildCost(project);
@@ -57,8 +54,6 @@ export function buildShoppingList(project: Project): ShoppingList {
         unit: m.sheets === 1 ? 'sheet' : 'sheets',
         unitPrice: m.pricePerSheet,
         total: round2(m.cost),
-        store: mat?.store,
-        sku: mat?.sku,
       };
     });
   if (sheetItems.length) {
@@ -76,8 +71,6 @@ export function buildShoppingList(project: Project): ShoppingList {
       unit: cost.counter.slabs === 1 ? 'slab' : 'slabs',
       unitPrice: cost.counter.pricePerSlab,
       total: round2(cost.counter.cost),
-      store: mat?.store,
-      sku: mat?.sku,
     };
     sections.push({ title: 'Countertops', items: [item], subtotal: item.total });
   }
@@ -93,7 +86,6 @@ export function buildShoppingList(project: Project): ShoppingList {
       unit: 'ft',
       unitPrice: round2((pricing.edgeBandingPer100Ft ?? 0) / 100),
       total: round2(cost.bandingCost),
-      store: 'Home Depot',
     };
     sections.push({ title: 'Edge banding', items: [item], subtotal: item.total });
   }
@@ -105,10 +97,10 @@ export function buildShoppingList(project: Project): ShoppingList {
     { key: 'slide', name: 'Drawer slide pairs', detail: 'Soft-close (size per drawer)', qty: hw.slidePairs, unit: 'pair', unitPrice: pricing.slidePairEach },
     { key: 'pull', name: 'Pulls / knobs', detail: 'Door + drawer hardware', qty: hw.pulls, unit: 'ea', unitPrice: pricing.pullEach },
     { key: 'latch', name: 'Push-to-open latches', detail: 'Handleless push doors', qty: hw.pushLatches, unit: 'ea', unitPrice: pricing.pushLatchEach ?? 0 },
-    { key: 'leg', name: 'Adjustable legs', detail: 'Bought pole legs (IKEA-style), workbench free ends', qty: hw.legs, unit: 'ea', unitPrice: pricing.legEach ?? 0 },
+    { key: 'leg', name: 'Adjustable legs', detail: 'Bought pole-style legs, workbench free ends', qty: hw.legs, unit: 'ea', unitPrice: pricing.legEach ?? 0 },
   ]
     .filter((i) => i.qty > 0)
-    .map((i) => ({ ...i, total: round2(i.qty * i.unitPrice), store: 'Home Depot' }));
+    .map((i) => ({ ...i, total: round2(i.qty * i.unitPrice) }));
   if (hwItems.length) {
     sections.push({ title: 'Hardware', items: hwItems, subtotal: round2(hwItems.reduce((s, i) => s + i.total, 0)) });
   }

@@ -74,7 +74,6 @@ export const underCabinetLed: CabinetAddonDef = {
       unit: 'kit',
       unitPrice: LED_KIT_PRICE,
       total: LED_KIT_PRICE,
-      store: 'Lighting / hardware retailer',
     },
   ],
   shoppingSection: 'Lighting',
