@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      CSP for a fully client-side, local-only SPA — there is no backend, so
+      connect-src stays self-only. 'unsafe-inline' on style-src is required
+      because React Three Fiber / Drei set inline styles on the canvas.
+      blob:/data: cover JSON export downloads and 3D textures.
+      'wasm-unsafe-eval' (script-src) + data: (connect-src) let the cut-list PDF
+      export compile its Yoga layout engine, which @react-pdf ships as a WASM
+      binary fetched via a data: URL. 'wasm-unsafe-eval' permits WASM only, not
+      JS eval.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Design frameless (euro-style) cabinets in your browser: a 2D elevation editor with live 3D, kerf-aware sheet-nested cut lists, priced shopping lists, step-by-step assembly guides, and STEP export. Free, open-source, and fully local."
+    />
+    <title>Cabinetmaker — frameless cabinet design & cut lists</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

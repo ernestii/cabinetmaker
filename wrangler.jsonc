@@ -1,0 +1,14 @@
+{
+  // Cloudflare deploy config for the Cabinetmaker static SPA. There is no Worker
+  // script — this is a pure static-asset upload of the Vite build output, so
+  // `wrangler deploy` / `wrangler versions upload` knows to serve ./dist.
+  // (Netlify users: netlify.toml mirrors these rules.)
+  "name": "cabinetmaker",
+  "compatibility_date": "2026-06-07",
+  "assets": {
+    "directory": "./dist",
+    // Hash routing means real navigations always hit "/", but fall back to the
+    // app shell for any unknown path so deep links never 404.
+    "not_found_handling": "single-page-application"
+  }
+}
